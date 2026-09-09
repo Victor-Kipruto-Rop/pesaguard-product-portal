@@ -1,0 +1,47 @@
+[
+  {
+    "id": "cap-mpesa-ingest",
+    "name": "M-Pesa Real-Time Ingestion",
+    "category": "Ingestion",
+    "status": "Production",
+    "description": "Sub-second webhook processing pipeline for M-Pesa C2B and B2C callback payment events via Apache Kafka.",
+    "technicalSpecs": {
+      "throughput": "High-concurrency streaming via Kafka partition keys",
+      "verification": "HMAC SHA256 signature validation & IP whitelisting",
+      "idempotency": "Redis-backed distributed lock on MpesaReceiptNumber"
+    }
+  },
+  {
+    "id": "cap-dual-recon",
+    "name": "Dual-Ledger Reconciliation",
+    "category": "Reconciliation",
+    "status": "Production",
+    "description": "Automated matching engine pairing internal database records with raw payment partner statement dumps via dbt transforms.",
+    "technicalSpecs": {
+      "storage": "PostgreSQL (Internal Operational) vs Apache Cassandra (Immutable Audit Stream)",
+      "matchingRules": "Strict ID + Amount + Timestamp Drift Matrix"
+    }
+  },
+  {
+    "id": "cap-anomaly-det",
+    "name": "Rule-Based Anomaly Detection",
+    "category": "Anomalies",
+    "status": "Production",
+    "description": "Immediate detection of duplicate receipt IDs, callback delays (>300s), and amount variances.",
+    "technicalSpecs": {
+      "engine": "In-memory state streaming evaluation",
+      "rules": ["DUPLICATE_RECEIPT", "AMOUNT_MISMATCH", "UNMATCHED_REVERSAL"]
+    }
+  },
+  {
+    "id": "cap-ml-fraud",
+    "name": "Predictive ML Anomaly Scoring",
+    "category": "Anomalies",
+    "status": "Planned",
+    "description": "Machine learning model predicting payment fraud and pattern-based operational drift.",
+    "technicalSpecs": {
+      "target": "Unsupervised cluster evaluation",
+      "statusNote": "In active research phase; currently using strict deterministic rules."
+    }
+  }
+]
