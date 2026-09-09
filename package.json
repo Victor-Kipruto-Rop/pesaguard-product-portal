@@ -15,7 +15,6 @@
     "sitemap": "node scripts/generate-sitemap.js",
     "search-index": "node scripts/generate-search-index.js"
   },
-  "dependencies": {},
   "devDependencies": {
     "eslint": "^9.0.0",
     "prettier": "^3.2.5",
