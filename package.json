@@ -1,0 +1,29 @@
+{
+  "name": "pesaguard-product-portal",
+  "version": "1.0.0",
+  "description": "Production-Grade Product Intelligence, Architecture, and Demonstration Portal for PesaGuard",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build && npm run sitemap && npm run search-index",
+    "preview": "vite preview",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "lint": "eslint src/**/*.js",
+    "format": "prettier --write \"src/**/*.{js,css,json,md}\"",
+    "validate": "node scripts/validate-json.js && node scripts/validate-content.js",
+    "sitemap": "node scripts/generate-sitemap.js",
+    "search-index": "node scripts/generate-search-index.js"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "eslint": "^9.0.0",
+    "prettier": "^3.2.5",
+    "vite": "^5.2.0",
+    "vitest": "^1.4.0"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=9.0.0"
+  }
+}
