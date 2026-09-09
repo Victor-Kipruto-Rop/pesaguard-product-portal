@@ -1,0 +1,19 @@
+{
+  "nodes": [
+    { "id": "source-mpesa", "label": "M-Pesa Daraja API", "layer": "External Rail", "status": "Active" },
+    { "id": "ingest-webhook", "label": "FastAPI Webhook Gateway", "layer": "Ingestion", "status": "Active" },
+    { "id": "bus-kafka", "label": "Apache Kafka Cluster", "layer": "Streaming Event Bus", "status": "Active" },
+    { "id": "proc-normalizer", "label": "PySpark Normalizer Service", "layer": "Processing", "status": "Active" },
+    { "id": "db-cassandra", "label": "Apache Cassandra (Raw Ledger)", "layer": "Storage", "status": "Active" },
+    { "id": "db-postgres", "label": "PostgreSQL (Reconciled Ledger)", "layer": "Storage", "status": "Active" },
+    { "id": "engine-recon", "label": "dbt Batch Reconciliation Engine", "layer": "Analytics Engine", "status": "Active" }
+  ],
+  "edges": [
+    { "from": "source-mpesa", "to": "ingest-webhook", "type": "HTTPS Post / Callback" },
+    { "from": "ingest-webhook", "to": "bus-kafka", "type": "Raw JSON Payload" },
+    { "from": "bus-kafka", "to": "proc-normalizer", "type": "Kafka Consumer Stream" },
+    { "from": "proc-normalizer", "to": "db-cassandra", "type": "Write Raw Event" },
+    { "from": "proc-normalizer", "to": "db-postgres", "type": "Write Normalized Event" },
+    { "from": "db-postgres", "to": "engine-recon", "type": "SQL Transform Pipeline" }
+  ]
+}
