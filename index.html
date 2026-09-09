@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PesaGuard Product Portal | Payment Event to Operational Truth</title>
+  <meta name="description" content="PesaGuard technical infrastructure, real-time reconciliation engine, and payment anomaly platform for high-throughput enterprise fintech." />
+  
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="alternate icon" href="/favicon.ico" />
+  <link rel="manifest" href="/manifest.json" />
+  <meta name="theme-color" content="#07110E" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="PesaGuard Product Portal" />
+  <meta property="og:description" content="From Payment Event to Operational Truth. Infrastructure architecture & interactive demonstration." />
+  <meta property="og:image" content="/images/og/og-main.png" />
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="/src/styles/variables.css" />
+  <link rel="stylesheet" href="/src/styles/reset.css" />
+  <link rel="stylesheet" href="/src/styles/typography.css" />
+  <link rel="stylesheet" href="/src/styles/colors.css" />
+  <link rel="stylesheet" href="/src/styles/app.css" />
+  <link rel="stylesheet" href="/src/styles/navbar.css" />
+  <link rel="stylesheet" href="/src/styles/cards.css" />
+  <link rel="stylesheet" href="/src/styles/architecture.css" />
+  <link rel="stylesheet" href="/src/styles/lifecycle.css" />
+</head>
+<body class="pg-body">
+  <a href="#main-content" class="pg-skip-link">Skip to main content</a>
+  
+  <div id="app" class="pg-app-shell">
+    <header id="site-header" class="pg-header"></header>
+    <main id="main-content" class="pg-main" tabindex="-1"></main>
+    <footer id="site-footer" class="pg-footer"></footer>
+  </div>
+
+  <div id="command-palette-container"></div>
+  <div id="toast-container" aria-live="polite" aria-atomic="true"></div>
+
+  <script type="module" src="/src/router/index.js"></script>
+</body>
+</html>
